@@ -2,7 +2,7 @@ import React from 'react'
 // import { Typed } from "react-typed";
 // import ReactTyped from "react-typed";
 import { Typewriter } from 'react-simple-typewriter';
-import profileImg from "../assets/pxfuel.jpg"
+import profileImg from "../../public/images/portfolio-profile.png"
 import { FaAws, FaDatabase, FaDocker, FaDownload, FaEye, FaFigma, FaFileExcel, FaFilePowerpoint, FaFileWord, FaGitAlt, FaKey, FaLinux, FaSass, FaSearch, FaTools } from 'react-icons/fa';
 
 import Marquee from "react-fast-marquee";
@@ -138,7 +138,7 @@ function Profile() {
 
                     <div className="flex gap-15" style={{ marginTop: '15px' }}>
                         <a
-                            href="./Resume.pdf"
+                            href="./palash-maji-resume-full-stack.pdf"
                             download
                             className="inline-flex items-center gap-2 bg-cyan-500 text-white px-5 py-2 rounded hover:bg-cyan-600 transition"
                         >
@@ -146,7 +146,7 @@ function Profile() {
                         </a>
 
                         <a
-                            href="./Resume.pdf"
+                            href="./palash-maji-resume-full-stack.pdf"
                             target="_blank"
                             rel="noreferrer"
                             className="inline-flex items-center gap-2 border  px-5 py-2 rounded hover:bg-cyan-500 hover:text-white transition"
