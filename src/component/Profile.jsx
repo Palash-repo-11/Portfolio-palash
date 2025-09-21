@@ -2,7 +2,7 @@ import React from 'react'
 // import { Typed } from "react-typed";
 // import ReactTyped from "react-typed";
 import { Typewriter } from 'react-simple-typewriter';
-import profileImg from "../../public/images/portfolio-profile.png"
+import profileImg from "/images/portfolio-profile.png"
 import { FaAws, FaDatabase, FaDocker, FaDownload, FaEye, FaFigma, FaFileExcel, FaFilePowerpoint, FaFileWord, FaGitAlt, FaKey, FaLinux, FaSass, FaSearch, FaTools } from 'react-icons/fa';
 
 import Marquee from "react-fast-marquee";
