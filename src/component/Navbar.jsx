@@ -1,32 +1,16 @@
-// import React from 'react'
-// // import { Link } from 'react-scroll'
-// // import { Link } from 'react-router'
 
-// function Navbar() {
-//     const scrollTo = (id) => {
-//         document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-//     };
-//     return (
-//         <div>
-//             <nav className="fixed top-0 w-full bg-gray-900 text-white shadow z-50">
-//                 <div className="container mx-auto px-4 py-3 flex justify-center space-x-8">
-//                     <button onClick={() => scrollTo("profile")} className="hover:text-cyan-400">Profile</button>
-//                     <button onClick={() => scrollTo("experience")} className="hover:text-cyan-400">Experience</button>
-//                     <button onClick={() => scrollTo("projects")} className="hover:text-cyan-400">Projects</button>
-//                     <button onClick={() => scrollTo("connect")} className="hover:text-cyan-400">Contact Me</button>
-//                     <button onClick={() => scrollTo("testimonials")} className="hover:text-cyan-400"> Testimonials</button>
-//                 </div>
-//             </nav>
-//         </div>
-//     )
-// }
-
-// export default Navbar
 
 
 import React, { useEffect, useState } from 'react';
+import { Briefcase, Folder, Mail, User } from 'lucide-react';
 
-const sections = ["profile", "experience", "projects", "connect"];
+// const sections = ["profile", "experience", "projects", "connect"];
+const sections = [
+    { id: "profile", label: "Profile", icon: <User className="w-5 h-5" /> },
+    { id: "experience", label: "Experience", icon: <Briefcase className="w-5 h-5" /> },
+    { id: "projects", label: "Projects", icon: <Folder className="w-5 h-5" /> },
+    { id: "connect", label: "Connect", icon: <Mail className="w-5 h-5" /> },
+];
 
 function Navbar() {
     const [activeSection, setActiveSection] = useState("profile");
@@ -44,9 +28,9 @@ function Navbar() {
             }
 
             for (let i = sections.length - 1; i >= 0; i--) {
-                const section = document.getElementById(sections[i]);
+                const section = document.getElementById(sections[i].id);
                 if (section && section.offsetTop <= scrollPosition) {
-                    setActiveSection(sections[i]);
+                    setActiveSection(sections[i].id);
                     break;
                 }
             }
@@ -64,14 +48,18 @@ function Navbar() {
             <div className="flex justify-center items-center space-x-6 text-sm font-medium">
                 {sections.map((section) => (
                     <button
-                        key={section}
-                        onClick={() => scrollTo(section)}
-                        className={`transition-all duration-300 px-3 py-1 rounded-full ${activeSection === section
+                        key={section.id}
+                        onClick={() => scrollTo(section.id)}
+                        className={`transition-all duration-300 px-3 py-1 rounded-full flex items-center gap-2 ${activeSection === section.id
                                 ? "bg-cyan-500 text-white"
                                 : "hover:text-cyan-400"
                             }`}
                     >
-                        {section.charAt(0).toUpperCase() + section.slice(1)}
+                        {/* Icon (inherits text color) */}
+                        <span className="sm:hidden text-inherit">{section.icon}</span>
+
+                        {/* Text (hidden on mobile) */}
+                        <span className="hidden sm:inline">{section.label}</span>
                     </button>
                 ))}
             </div>
