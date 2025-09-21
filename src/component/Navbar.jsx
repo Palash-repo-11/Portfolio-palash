@@ -49,14 +49,15 @@ function Navbar() {
                 {sections.map((section) => (
                     <button
                         key={section.id}
+                         title={section.label} 
                         onClick={() => scrollTo(section.id)}
-                        className={`transition-all duration-300 px-3 py-1 rounded-full flex items-center gap-2 ${activeSection === section.id
+                        className={`transition-all duration-300 px-3 py-1 rounded-full flex items-center gap-2 cursor-pointer ${activeSection === section.id
                                 ? "bg-cyan-500 text-white"
                                 : "hover:text-cyan-400"
                             }`}
                     >
                         {/* Icon (inherits text color) */}
-                        <span className="sm:hidden text-inherit">{section.icon}</span>
+                        <span className="sm:hidden text-inherit" >{section.icon}</span>
 
                         {/* Text (hidden on mobile) */}
                         <span className="hidden sm:inline">{section.label}</span>
